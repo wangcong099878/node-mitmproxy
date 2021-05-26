@@ -35,26 +35,29 @@ module.exports = {
         }
 
         port = ~~port;
+
+        //创建请求对象
         var requestHandler = createRequestHandler(
-            requestInterceptor,
-            responseInterceptor,
-            middlewares,
-            externalProxy
+            requestInterceptor,    //请求拦截器
+            responseInterceptor,   //响应拦截器
+            middlewares,           //中间件
+            externalProxy          //外部代理
         );
 
         var upgradeHandler = createUpgradeHandler();
 
+        //假服务器
         var fakeServersCenter = createFakeServerCenter({
-            caCertPath,
-            caKeyPath,
-            requestHandler,
-            upgradeHandler,
-            getCertSocketTimeout
+            caCertPath,         //证书
+            caKeyPath,          //证书key
+            requestHandler,     //请求处理
+            upgradeHandler,     //websocket处理
+            getCertSocketTimeout //超时
         });
 
         var connectHandler = createConnectHandler(
-            sslConnectInterceptor,
-            fakeServersCenter
+            sslConnectInterceptor,   //ssl连接拦截
+            fakeServersCenter        //假服务器处理
         );
 
         var server = new http.Server();

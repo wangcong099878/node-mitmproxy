@@ -2,6 +2,8 @@ npm install
 lib/bin/index.js
 
 
+http://anyproxy.io/cn/
+
 # node-mitmproxy 3.x
 
 [![npm](https://img.shields.io/npm/dt/node-mitmproxy.svg)](https://www.npmjs.com/package/node-mitmproxy)  

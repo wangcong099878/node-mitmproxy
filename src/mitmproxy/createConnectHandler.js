@@ -12,16 +12,20 @@ module.exports = function createConnectHandler(sslConnectInterceptor, fakeServer
         var srvUrl = url.parse(`https://${req.url}`);
 
         if (typeof sslConnectInterceptor === 'function' && sslConnectInterceptor.call(null, req, cltSocket, head)) {
+            console.log('https');
+
             fakeServerCenter.getServerPromise(srvUrl.hostname, srvUrl.port).then((serverObj) => {
                 connect(req, cltSocket, head, localIP, serverObj.port);
             }, (e) => {
                 console.error(e);
             });
         } else {
+
+            console.log(9999999999);
+
             connect(req, cltSocket, head, srvUrl.hostname, srvUrl.port);
         }
     }
-
 }
 
 function connect (req, cltSocket, head, hostname, port) {

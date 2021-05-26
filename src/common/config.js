@@ -6,7 +6,7 @@ config.caCertFileName = 'node-mitmproxy.ca.crt';
 
 config.caKeyFileName = 'node-mitmproxy.ca.key.pem';
 
-config.defaultPort = 6789;
+config.defaultPort = 16789;
 
 config.caName = 'node-mitmproxy CA';
 
